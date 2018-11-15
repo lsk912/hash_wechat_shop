@@ -5,7 +5,7 @@
          <block wx:for-items="{{goodsWelfareItems}}" wx:key="name">
           <view class="welfares-good" catchtap="catchTapCategory" data-type="{{item.name}}" data-typeid="{{item.product_id}}">
             <view>
-              <image src="{{item.image}}" class="welfares-image" mode="widthFix"/> 
+              <image src="https://wx.nicehash.cn/{{item.image}}" class="welfares-image" mode="widthFix"/> 
             </view>
             <view class="product-name">
               {{item.name}}

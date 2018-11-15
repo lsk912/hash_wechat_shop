@@ -44,7 +44,7 @@
     <view class="cart_container">
   
 
-      <image class="item-image" src="{{item.pic}}" catchtap="catchTapCategory" data-typeid="{{item.product_id}}"></image>
+      <image class="item-image" src="https://wx.nicehash.cn/{{item.pic}}" catchtap="catchTapCategory" data-typeid="{{item.product_id}}"></image>
       <import src="../template/template.wxml" />
       <view class="column"  data-typeid="{{item.product_id}}">
         <text class="title" catchtap="catchTapCategory">{{item.name}}</text>

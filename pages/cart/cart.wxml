@@ -9,7 +9,7 @@
       <view wx:elif="{{item.isSelect}}">
             <icon class="item-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}"  type="success" color="#e84c3d" size="20"></icon>
       </view>
-   <image class="item-image" src="{{item.pic}}" catchtap="catchTapCategory" data-typeid="{{item.product_id}}"></image>
+   <image class="item-image" src="https://wx.nicehash.cn/{{item.pic}}" catchtap="catchTapCategory" data-typeid="{{item.product_id}}"></image>
      <import src="../template/template.wxml" />
       <view class="column"  >
         <text class="title" data-typeid="{{item.product_id}}" catchtap="catchTapCategory">{{item.name}}</text>

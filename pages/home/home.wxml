@@ -6,7 +6,7 @@
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{banners}}">
       <swiper-item>
-        <image src="{{item.image}}" />
+        <image src="https://wx.nicehash.cn/{{item.image}}" />
       </swiper-item>
     </block>
   </swiper>
@@ -19,14 +19,14 @@
     <view class="category-title">
       <text class="name">新品上架</text>
       <view class="line_flag"></view>
-      <image class="head-img" src="{{newgoods_head_url}}"></image>
+      <image class="head-img" src="../../images/timg.jpg"></image>
     </view>
 
     <scroll-view scroll-x="true">
       <view class="goods">
         <block wx:for-items="{{goodsItems}}" wx:key="name">
           <view class="goods-item" catchtap="catchTapCategory" data-type="{{item.name}}" data-typeid="{{item.product_id}}">
-            <image src="{{item.image}}" class="goods-image" />
+            <image src="https://wx.nicehash.cn/{{item.image}}" class="goods-image" />
             <text>{{item.name}}</text>
             <p>￥{{item.price}}</p>
           </view>
@@ -46,7 +46,7 @@
           <view class="welfares-good" catchtap="catchTapCategory" data-type="{{item.name}}" data-typeid="{{item.product_id}}">
             <view class="product-tit">
               <view>
-                <image src="{{item.image}}" class="welfares-image" mode="widthFix"/> 
+                <image src="https://wx.nicehash.cn/{{item.image}}" class="welfares-image" mode="widthFix"/> 
               </view>
               <view class="product-name">
                 {{item.name}}

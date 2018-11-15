@@ -17,7 +17,7 @@
         <view class="nav_right_items">
         <!--界面跳转 -->
            <navigator url="../list/list?id={{item.category_id}}">
-            <image src="{{item.image}}"></image>
+            <image src="https://wx.nicehash.cn/{{item.image}}"></image>
             <text>{{item.name}}</text>
           </navigator>
         </view>
