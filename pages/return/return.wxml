@@ -1,0 +1,20 @@
+<!--pages/return/return.wxml-->
+      <view class="orderDetails" wx:for="{{returnorder}}" wx:key=" ">
+        <view class="orderListTitle" catchtap='orderdetail' data-type="{{item.order_id}}">
+          <text class="userName">订单号:{{item.invoice_prefix}}</text>
+          <text wx:if="{{item.return_status_id==1}}" class="orderStatus">待处理</text>
+          <text wx:if="{{item.return_status_id==2}}" class="orderStatus">等待寄回商品</text>
+          <text wx:if="{{item.return_status_id==3}}" class="orderStatus">已退款</text>
+      </view>
+      <view class="orderListDetails" wx:for="{{item.goods}}" wx:for-item="goods" catchtap='orderdetail' data-type="{{item.order_id}}">
+          <view class="productImg">
+          <image src="{{goods.image}}"></image>
+          </view>
+          <view class="productInfo">
+              <view class="productTitle">{{goods.name}}</view>
+              <text class="productPrice">￥{{goods.price}}</text><text class="od-num">x{{goods.quantity}}</text>
+              <text class="productQuantity">合计：￥<text>{{goods.total}}</text></text>
+          </view>
+      </view>
+      </view>
+ 

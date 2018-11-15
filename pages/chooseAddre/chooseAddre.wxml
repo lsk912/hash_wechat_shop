@@ -1,0 +1,14 @@
+<!--pages/chooseAddre/chooseAddre.wxml-->
+<view class = "item" wx:for="{{list}}"  bindtap="toCleanOrder" data-index="{{item.index}}" data-id="{{item.address_id}}" data-name="{{item.firstname}}" data-tel="{{item.phone}}" data-addre="{{item.address_1}}" data-image="../../images/uncheck.png" >
+<view class = "info">
+<text>{{item.firstname}}，{{item.phone}}</text>
+<text  >地址：{{item.address_1}}</text>
+</view>
+</view>
+
+<view class = "add" bindtap = "addAddre">
+	<image  class = "left"src = "../../images/6.png"
+    mode = "widthFix" /><view class = "text">新增个人地址</view>
+    <image class="right" src = "../../images/right.png"
+    mode = "widthFix" />
+</view>

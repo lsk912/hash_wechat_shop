@@ -1,0 +1,100 @@
+<!--pages/buy/buy.wxml-->
+<!--pages/cart/cart.wxml-->
+<import src="../template/template.wxml" />
+<view class="scroll" hidden="{{hidden}}">
+<form bindsubmit="formSubmit" report-submit="true">
+<view class = "section">
+<view class = "addre1" bindtap = "toChooseAddre" style="display:{{display1}} ">
+  <view class = "left">
+    <image src="../../images/map.jpg" 
+    mode = "widthFix"/><text class = "red">　选择您的地址</text>
+  </view>
+  <view class = "right">
+      <image class="more" src = "../../images/right.png"
+    mode = "widthFix" />
+  </view>
+  </view>
+
+ 
+
+<view class = "addre1 addre2" bindtap = "toChooseAddre"  style="display:{{display2}} "  >
+
+  <view class = "left">
+  <view class="left_top">
+  <image src="../../images/map2.png" 
+    mode = "widthFix"/>
+    {{name}}　{{tel}}　
+    </view>
+    <view class = "left_bottom">
+      地址：{{addre}}
+    </view>
+  </view>
+  <view class = "right">
+    <image class="more" src = "../../images/right.png"
+    mode = "widthFix" />
+  </view>
+</view>
+
+<view class = "line"><image src = "../../images/line.jpg" mode="aspectFit" repeat = "repeat"/></view>
+</view>
+ </form>  
+<scroll-view class="scroll" scroll-y="true">
+  <view class="separate"></view>
+  <view wx:for="{{carts}}">
+    <view class="cart_container">
+  
+
+      <image class="item-image" src="{{item.pic}}" catchtap="catchTapCategory" data-typeid="{{item.product_id}}"></image>
+      <import src="../template/template.wxml" />
+      <view class="column"  data-typeid="{{item.product_id}}">
+        <text class="title" catchtap="catchTapCategory">{{item.name}}</text>
+        <view class="row">
+          <text class="sku-price" catchtap="catchTapCategory">￥{{item.price * item.count}}</text>
+          <view class="sku">
+              <template is="quantity"  data="{{ ...item,index:index}}" /> 
+          </view>
+        </view>
+
+      </view>
+    </view>
+    </view>
+    <view class="separate"></view>
+    <view class="sure-item flex">
+            <view class="item-title">
+                <text>配送方式：</text>
+            </view>
+            <view class="sub tr peisong mr15">
+                <text>快递配送 - <text class="red">普通快递</text></text>
+            </view>
+        </view>
+  
+  <view class="sure-item flex">
+            <view class="item-title">
+                <text>发票信息:</text>
+            </view>
+            <view class="sub tr peisong mr15">
+                 <text class="red">电子发票</text>
+            </view>
+        </view>
+        <view class="sure-item flex">
+            <view class="item-title">
+                <text>商品金额:</text>
+            </view>
+            <view class="sub tr peisong mr15">
+                <text> <text class="red">￥{{totalMoney}}元</text></text>
+            </view>
+        </view>
+</scroll-view>
+</view>
+<view class="bottom_total" hidden="{{hidden}}">
+  <view class="bottom_line"></view>
+
+  <view class="row">
+    <text class="small_text"></text>
+    <text>合计:￥ </text>
+    <text class="price">{{totalMoney}}元</text>
+    <button class="button-red" bindtap="toBuy" formType="submit">提交订单</button>
+  </view>
+</view>
+
+

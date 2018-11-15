@@ -1,0 +1,31 @@
+<!--pages/log/log.wxml-->
+
+<view class="container">
+  <view class="login-from">
+ 
+    <!--账号-->
+    <view class="inputView">
+      <image class="nameImage" src="../../images/user.png"></image>
+      <label class="loginLab">账号</label>
+      <input class="inputText" placeholder="请输入邮箱或者手机号" bindinput="phoneInput" />
+    </view>
+    <view class="line"></view>
+ 
+    <!--密码-->
+    <view class="inputView">
+      <image class="keyImage" src="../../images/pass.png"></image>
+      <label class="loginLab">密码</label>
+      <input class="inputText" password="true" placeholder="请输入密码" bindinput="passwordInput" />
+    </view>
+    <!--按钮-->
+    <view id='button'>
+    <button formType="submit" bindtap="login">登录</button>
+    </view>
+      <view id="xia">
+    <view style="float:right;">
+      <navigator url="../reg/reg" open-type="redirect" hover-class="other-navigator-hover">免费注册</navigator>
+      <navigator url="redirect?title=redirect" open-type="redirect" hover-class="other-navigator-hover">忘记密码？</navigator>
+    </view>
+  </view>
+  </view>
+</view>

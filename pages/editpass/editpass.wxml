@@ -1,0 +1,24 @@
+<!--pages/editpass/editpass.wxml-->
+<!--pages/myinfo/myinfo.wxml-->
+<!--pages/log/log.wxml-->
+<view class="container">
+  <view class="login-from">
+ <view class="inputView">
+      <label class="loginLab">旧密码</label>
+      <input class="inputText" bindinput="oldpass" password="true" placeholder="请输入旧密码" />
+    </view>
+    <!--账号-->
+    <view class="line"></view>
+  <view class="inputView">
+      <label class="loginLab">新密码</label>
+      <input class="inputText" password="true" placeholder="新密码" bindinput="newpass"/>
+    </view>
+    <view class="line"></view>
+    <!--按钮-->
+    <view id='button'>
+    <button formType="submit" bindtap="dopass">确定</button>
+    </view>
+  </view>
+</view>
+
+

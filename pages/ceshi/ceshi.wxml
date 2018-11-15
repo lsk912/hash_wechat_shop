@@ -1,0 +1,52 @@
+<view wx:if="{{items}}">
+<view class="container">
+  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="">
+  <view class="content">
+   <view class="cart_container">  
+    <view  wx:if="{{!item.isSelect}}">
+            <icon class="item-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}"  type="circle" size="20"></icon>
+      </view>
+      <view wx:elif="{{item.isSelect}}">
+            <icon class="item-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}"  type="success" color="#f0145a" size="20"></icon>
+      </view>
+   <image class="item-image" src="{{item.pic}}" catchtap="catchTapCategory" data-typeid="{{item.product_id}}"></image>
+     <import src="../template/template.wxml" />
+      <view class="column"  data-typeid="{{item.product_id}}">
+        <text class="title" catchtap="catchTapCategory">{{item.name}}</text>
+        <view class="row">
+          <text class="sku-price" catchtap="catchTapCategory">￥{{item.price * item.count}}</text>
+          <view class="sku">
+              <template is="quantity"  data="{{ ...item,index:index}}" /> 
+          </view>
+        </view>
+      </view>
+      </view>
+  </view>
+  <view class="del" catchtap="del" data-index="{{index}}">删除</view>
+  </view>
+ </view>
+ <view class="bottom_total" hidden="{{hidden}}">
+  <view class="bottom_line"></view>
+
+  <view class="row">
+
+    <view  wx:if="{{!isAllSelect}}">
+            <icon class="item-allselect" bindtap="allSelect" type="circle" size="20"></icon>
+      </view>
+      <view wx:elif="{{isAllSelect}}">
+            <icon class="item-allselect" bindtap="allSelect" type="success" color="#f0145a" size="20"></icon>
+      </view>
+    <text class="small_text">全选</text>
+    <text>合计:￥ </text>
+    <text class="price">{{totalMoney}}</text>
+    <button class="button-red" bindtap="toBuy" formType="submit">去结算      </button>
+  </view>
+</view>
+</view>
+ <view wx:else  id="img">
+   <image  src="../../images/bottomNav/cart.png"></image>
+   <view id="button">
+     <button formType="submit" bindtap="buy">去看看</button>
+   </view>
+</view>
+ 

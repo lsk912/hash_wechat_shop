@@ -1,0 +1,46 @@
+<!--pages/detail/detail.wxml-->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+        <image src="{{item.image}}" data-src="{{item.image}}" bindtap="previewImage" mode="widthFix"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!--图文详情按钮-->
+<view class='tab-bar-detail'>
+      <text>图文</text>
+      <text>详情</text>
+</view> 
+
+<view class="product-price-wrap">
+  <view wx:if="{{goods.special}}">
+    <p class="product-price-new">￥{{goods.special}}</p>  
+    <p class="product-price-old">原价￥{{goods.price}}</p> 
+  </view>
+   <view wx:else="{{goods.special}}">
+    <p class="product-price-new">￥{{goods.price}}</p>  
+  </view>
+  <view>
+    <image src="../../images/bottomNav/share.png" />  
+  </view>   
+</view>
+<view class="product-name-wrap">
+  <text>{{goods.meta_title}}</text>
+</view>
+
+<view class="separate"></view>
+
+<view class="details"> 
+   <scroll-view scroll-y="true"> 
+      {{goods.description}}
+   </scroll-view> 
+ </view>
+<!-- 底部悬浮栏 -->
+<view class="detail-nav">
+  <image bindtap="toCar" src="../../images/bottomNav/cart.png" />  
+  <view class="line_nav"></view>
+   <image bindtap="addLike" data-typeid="{{isLike?1:2}}" data-userid="{{userid}}"src="{{isLike?'../../images/bottomNav/enshrine_select.png':'../../images/bottomNav/enshrine.png'}}" /> 
+  <button data-goodid="1" data-userid="{{userid}}"  class="button-green" bindtap="toggleDialog" >加入购物车</button>
+  <button class="button-red" bindtap="immeBuy" data-userid="{{userid}}" formType="submit">立即购买</button>
+</view>

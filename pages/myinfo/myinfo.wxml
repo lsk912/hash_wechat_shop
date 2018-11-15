@@ -1,0 +1,29 @@
+<!--pages/myinfo/myinfo.wxml-->
+<!--pages/log/log.wxml-->
+<view class="container">
+  <view class="login-from">
+ <view class="inputView">
+      <label class="loginLab">用户名</label>
+      <input class="inputText" bindinput="nameInput" value="{{userinfo.firstname}}"/>
+    </view>
+    <view class="line"></view>
+    <!--账号-->
+    <view class="inputView">
+      <label class="loginLab">手机号</label>
+      <input class="inputText" bindinput="phoneInput" value="{{userinfo.telephone}}"/>
+    </view>
+    <view class="line"></view>
+  <view class="inputView">
+      <label class="loginLab">邮箱</label>
+      <input class="inputText" bindinput="emailInput" value="{{userinfo.email}}"/>
+    </view>
+    <view class="line"></view>
+    <!--按钮-->
+    <view id='button'>
+    <button formType="submit" bindtap="editinfo">修改</button>
+    <button formType="submit" bindtap="editpass">修改密码</button>
+    <button formType="submit" bindtap="loginout">退出登录</button>
+    </view>
+  </view>
+</view>
+

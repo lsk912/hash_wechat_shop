@@ -1,0 +1,47 @@
+<!--pages/reg/reg.wxml-->
+<!--pages/log/log.wxml-->
+
+<view class="container">
+  <view class="login-from">
+ <!--用户名-->
+    <view class="inputView">
+      <image class="keyImage" src="../../images/pass.png"></image>
+      <label class="loginLab">用户名</label>
+      <input class="inputText"  placeholder="请输入用户名" bindinput="nameInput" />
+    </view>
+     <view class="line"></view>
+    <!--手机号-->
+    <view class="inputView">
+      <image class="nameImage" src="../../images/user.png"></image>
+      <label class="loginLab">手机号</label>
+      <input class="inputText" placeholder="请输入手机号" bindinput="phoneInput" />
+    </view>
+     <view class="line"></view>
+    <!--邮箱-->
+    <view class="inputView">
+      <image class="keyImage" src="../../images/pass.png"></image>
+      <label class="loginLab">邮箱</label>
+      <input class="inputText"  placeholder="请输入邮箱" bindinput="emailInput" />
+    </view>
+    <view class="line"></view>
+ 
+    <!--密码-->
+    <view class="inputView">
+      <image class="keyImage" src="../../images/pass.png"></image>
+      <label class="loginLab">密码</label>
+      <input class="inputText" password="true" placeholder="请输入密码" bindinput="passwordInput" />
+    </view>
+   
+    <!--按钮-->
+    <view id='button'>
+    <button formType="submit" bindtap="reg">注册</button>
+    </view>
+      <view id="xia">
+    <view style="float:right;">
+      <navigator url="../log/log" open-type="redirect" hover-class="other-navigator-hover">登录</navigator>
+      <navigator url="redirect?title=redirect" open-type="redirect" hover-class="other-navigator-hover">忘记密码？</navigator>
+    </view>
+  </view>
+  </view>
+</view>
+

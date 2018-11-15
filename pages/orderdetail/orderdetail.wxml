@@ -1,0 +1,60 @@
+<!--pages/orderdetail/orderdetail.wxml-->
+<view class = "addre1 addre2" bindtap = "toChooseAddre"  style="display:{{display2}} "  >
+
+  <view class = "left">
+  <view class="left_top">
+  <image src="../../images/map2.png" 
+    mode = "widthFix"/>
+    {{order.payment_firstname}}　{{order.telephone}}　
+    </view>
+    <view class = "left_bottom">
+      地址：{{order.payment_address_1}}
+    </view>
+  </view>
+</view>
+
+<view class = "line"><image src = "../../images/line.jpg" mode="aspectFit" repeat = "repeat"/></view>
+<scroll-view class="scroll" scroll-y="true">
+  <view class="separate"></view>
+  <view wx:for="{{order.goods}}" wx:for-item="goods" >
+    <view class="cart_container">
+      <image class="item-image" src="{{goods.image}}" catchtap="catchTapCategory" data-typeid="{{goods.product_id}}"></image>
+      <view class="column"  data-typeid="{{item.product_id}}">
+        <text class="title" catchtap="catchTapCategory">{{goods.name}}</text>
+        <view class="row">
+          <text class="sku-price" catchtap="catchTapCategory">￥{{goods.price}}x{{goods.quantity}}</text>
+          <view class="sku">
+              <text>合计:{{goods.total}}</text>
+          </view>
+        </view>
+
+      </view>
+    </view>
+    </view>
+    <view class="separate"></view>
+    <view class="sure-item flex">
+            <view class="item-title">
+                <text>配送方式：</text>
+            </view>
+            <view class="sub tr peisong mr15">
+                <text>快递配送 - <text class="red">普通快递</text></text>
+            </view>
+        </view>
+  
+  <view class="sure-item flex">
+            <view class="item-title">
+                <text>发票信息:</text>
+            </view>
+            <view class="sub tr peisong mr15">
+                 <text class="red">电子发票</text>
+            </view>
+        </view>
+        <view class="sure-item flex">
+            <view class="item-title">
+                <text>商品金额:</text>
+            </view>
+            <view class="sub tr peisong mr15">
+                <text> <text class="red">￥{{order.total}}元</text></text>
+            </view>
+        </view>
+</scroll-view>

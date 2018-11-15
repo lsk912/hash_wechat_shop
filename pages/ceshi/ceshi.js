@@ -1,0 +1,222 @@
+var app = getApp()
+Page({
+  data: {
+    items: [],
+    startX: 0, //开始坐标
+    startY: 0,
+    hidden: null,
+    hiddenEmpty: true,
+    isAllSelect: false,
+    totalMoney: 0,
+  },
+  onLoad: function () {
+    
+  },
+  
+  //手指触摸动作开始 记录起点X坐标
+  touchstart: function (e) {
+    //开始触摸时 重置所有删除
+    this.data.items.forEach(function (v, i) {
+      if (v.isTouchMove)//只操作为true的
+        v.isTouchMove = false;
+    })
+    this.setData({
+      startX: e.changedTouches[0].clientX,
+      startY: e.changedTouches[0].clientY,
+      items: this.data.items
+    })
+  },
+  //滑动事件处理
+  touchmove: function (e) {
+    var that = this,
+      index = e.currentTarget.dataset.index,//当前索引
+      startX = that.data.startX,//开始X坐标
+      startY = that.data.startY,//开始Y坐标
+      touchMoveX = e.changedTouches[0].clientX,//滑动变化坐标
+      touchMoveY = e.changedTouches[0].clientY,//滑动变化坐标
+      //获取滑动角度
+      angle = that.angle({ X: startX, Y: startY }, { X: touchMoveX, Y: touchMoveY });
+    that.data.items.forEach(function (v, i) {
+      v.isTouchMove = false
+      //滑动超过30度角 return
+      if (Math.abs(angle) > 30) return;
+      if (i == index) {
+        if (touchMoveX > startX) //右滑
+          v.isTouchMove = false
+        else //左滑
+          v.isTouchMove = true
+      }
+    })
+    //更新数据
+    that.setData({
+      items: that.data.items
+    })
+  },
+  /**
+   * 计算滑动角度
+   * @param {Object} start 起点坐标
+   * @param {Object} end 终点坐标
+   */
+  angle: function (start, end) {
+    var _X = end.X - start.X,
+      _Y = end.Y - start.Y
+    //返回角度 /Math.atan()返回数字的反正切值
+    return 360 * Math.atan(_Y / _X) / (2 * Math.PI);
+  },
+  //删除事件
+  del: function (e) {
+    this.data.items.splice(e.currentTarget.dataset.index, 1)
+    this.setData({
+      items: this.data.items
+    })
+  },
+  onShow: function () {
+    var that = this
+    wx.getStorage({
+      key: 'userid',
+      success: function (res) {
+        // console.log(res.data);
+        that.setData({
+          userid: res.data
+        })
+        wx.request({
+          url: 'https://wx.nicehash.cn/api/cart.php?userid=' + res.data,
+          header: {
+            'content-type': 'application/json',
+          },
+          success: function (res) {
+            that.setData({
+              items: res.data.data,
+              totalMoney: 0
+            })
+          }
+        })
+      },
+    })
+  },
+  switchSelect: function (e) {
+    console.log(111);
+    // 获取item项的id，和数组的下标值  
+    var Allprice = 0, i = 0;
+    let id = e.target.dataset.id,
+
+      index = parseInt(e.target.dataset.index);
+    this.data.carts[index].isSelect = !this.data.carts[index].isSelect;
+    //价钱统计
+    if (this.data.carts[index].isSelect) {
+      this.data.totalMoney = this.data.totalMoney + (this.data.carts[index].price * this.data.carts[index].count);
+    }
+    else {
+      this.data.totalMoney = this.data.totalMoney - (this.data.carts[index].price * this.data.carts[index].count);
+    }
+    //是否全选判断
+    for (i = 0; i < this.data.carts.length; i++) {
+      Allprice = Allprice + (this.data.carts[index].price * this.data.carts[index].count);
+    }
+    if (Allprice == this.data.totalMoney) {
+      this.data.isAllSelect = true;
+    }
+    else {
+      this.data.isAllSelect = false;
+    }
+    this.setData({
+      carts: this.data.carts,
+      totalMoney: this.data.totalMoney,
+      isAllSelect: this.data.isAllSelect,
+    })
+  },
+  allSelect: function (e) {
+    //处理全选逻辑
+    let i = 0;
+    if (!this.data.isAllSelect) {
+      this.data.totalMoney = 0;
+      for (i = 0; i < this.data.carts.length; i++) {
+        this.data.carts[i].isSelect = true;
+        this.data.totalMoney = this.data.totalMoney + (this.data.carts[i].price * this.data.carts[i].count);
+
+      }
+    }
+    else {
+      for (i = 0; i < this.data.carts.length; i++) {
+        this.data.carts[i].isSelect = false;
+      }
+      this.data.totalMoney = 0;
+    }
+    this.setData({
+      carts: this.data.carts,
+      isAllSelect: !this.data.isAllSelect,
+      totalMoney: this.data.totalMoney,
+    })
+  },
+  delCount: function (e) {
+    var index = e.target.dataset.index;
+    console.log("刚刚您点击了加一");
+    var count = this.data.carts[index].count;
+    // 商品总数量-1
+    // if (count > 1) {
+    //   this.data.carts[index].count--;
+    // }
+    if (count <= 1) {
+      return false;
+    } else {
+      this.data.carts[index].count--;
+    }
+    // 将数值与状态写回  
+    this.setData({
+      carts: this.data.carts
+    });
+    console.log("carts:" + this.data.carts);
+    this.priceCount();
+  },
+  addCount: function (e) {
+    var index = e.target.dataset.index;
+    console.log("刚刚您点击了加+");
+    var count = this.data.carts[index].count;
+    // count = count + 1;
+    // 商品总数量+1  
+    // if (count < 10) {
+    this.data.carts[index].count++;
+    // }
+    // 将数值与状态写回  
+    this.setData({
+      carts: this.data.carts
+    });
+    console.log("carts:" + this.data.carts);
+    this.priceCount();
+  },
+
+  priceCount: function (e) {
+    this.data.totalMoney = 0;
+    for (var i = 0; i < this.data.carts.length; i++) {
+      if (this.data.carts[i].isSelect == true) {
+        this.data.totalMoney = this.data.totalMoney + (this.data.carts[i].price * this.data.carts[i].count);
+      }
+
+    }
+    this.setData({
+      totalMoney: this.data.totalMoney,
+    })
+  },
+  toBuy() {
+    var carts = this.data.carts;
+
+    var cart = [];
+    for (let i = 0; i < carts.length; i++) {
+      if (carts[i].isSelect == true) {
+        cart.push(carts[i])   //获取选中的项
+      }
+    }
+    console.log(cart);
+    if (cart.length == 0) {
+      wx.showToast({
+        title: '请选择商品',
+        icon: 'success',
+        duration: 3000
+      });
+    } else {
+      wx.navigateTo({
+        url: '../buy/buy?goods=' + JSON.stringify(cart) + '&money=' + this.data.totalMoney,
+      })
+    }
+  }
+})

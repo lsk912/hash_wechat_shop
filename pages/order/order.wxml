@@ -1,0 +1,138 @@
+
+<!-- 切换栏 -->
+<view class="swiper-tab">
+  <block wx:for="{{swipertab}}" wx:key="sptab">
+    <view class="swiper-tab-list {{currtab == item.index ? 'on' : ''}}" data-current="{{item.index}}" bindtap="tabSwitch">{{item.name}}</view>
+  </block>
+</view>
+ 
+<swiper current="{{currtab}}" class="swiper-box" duration="300" style="height:{{clientHeight}}px" bindchange="tabChange">
+  <!-- 完成 -->
+  <swiper-item >
+    <scroll-view  scroll-y="true" style="height:{{clientHeight}}px">
+    <view wx:if="{{!alreadyOrder}}"  id="img">
+   <image  src="../../images/bottomNav/cart.png"></image>
+</view>
+      <view class="orderDetails" wx:for="{{alreadyOrder}}" wx:key=" " >
+        <view class="orderListTitle" catchtap='orderdetail' data-type="{{item.order_id}}">
+          <text class="userName">订单号:{{item.invoice_prefix}}</text>
+          <text wx:if="{{item.order_status_id==1}}"class="orderStatus">待付款</text>
+          <text wx:if="{{item.order_status_id==3}}" class="orderStatus">已发货</text>
+          <text wx:if="{{item.order_status_id==13}}" class="orderStatus">待发货</text>
+          <text wx:if="{{item.order_status_id==5}}" class="orderStatus">已完成</text>
+           <text wx:if="{{item.order_status_id==7}}" class="orderStatus">已取消</text>
+      </view>
+      <view class="orderListDetails" wx:for="{{item.goods}}" wx:for-item="goods" catchtap='orderdetail' data-type="{{item.order_id}}">
+          <view class="productImg">
+          <image src="{{goods.image}}"></image>
+          </view>
+          <view class="productInfo">
+              <view class="productTitle">{{goods.name}}</view>
+              <text class="productPrice">￥{{goods.price}}</text><text class="od-num">x{{goods.quantity}}</text>
+              <text class="productQuantity">合计：￥<text>{{goods.total}}</text></text>
+          </view>
+      </view>
+      
+      <view class="od-button" wx:if="{{item.order_status_id==1}}">
+        <button  formType="submit" bindtap="reg" data-type="{{item.order_id}}">去付款</button>
+      </view>
+       <view class="od-button" wx:if="{{item.order_status_id==3}}">
+         <button class="order-button" formType="submit" bindtap="ordersure" data-type="{{item.order_id}}">确认收货</button>
+      <button class="order-button" formType="submit" bindtap="returnorder" data-type="{{item.order_id}}">取消订单</button>
+      </view>
+      <view class="od-button" wx:if="{{item.order_status_id==13}}">
+         <button class="order-button" formType="submit" bindtap="ordersure" data-type="{{item.order_id}}">确认收货</button>
+      <button class="order-button" formType="submit" bindtap="returnorder" data-type="{{item.order_id}}">取消订单</button>
+      </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <!-- 待付款 -->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true" style="height:{{clientHeight}}px">
+     <view wx:if="{{!waitPayOrder}}"  id="img">
+   <image  src="../../images/bottomNav/cart.png"></image>
+</view>
+      <view class="orderDetails" wx:for="{{waitPayOrder}}" wx:key=" " >
+        <view class="orderListTitle" catchtap='orderdetail' data-type="{{item.order_id}}">
+          <text class="userName">订单号:{{item.invoice_prefix}}</text>
+          <text class="orderStatus">待付款</text>
+      </view>
+      <view class="orderListDetails" wx:for="{{item.goods}}" wx:for-item="goods" catchtap='orderdetail' data-type="{{item.order_id}}">
+          <view class="productImg">
+          <image src="{{goods.image}}"></image>
+          </view>
+          <view class="productInfo">
+              <view class="productTitle">{{goods.name}}</view>
+              <text class="productPrice">￥{{goods.price}}</text><text class="od-num">x{{goods.quantity}}</text>
+              <text class="productQuantity">合计：￥<text>{{goods.total}}</text></text>
+          </view>
+      </view>
+      <view class="od-button">
+        <button formType="submit" bindtap="reg" data-type="{{item.order_id}}">去付款</button>
+      </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <!-- 取消 -->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true" style="height:{{clientHeight}}px">
+     <view wx:if="{{!lostOrder}}"  id="img">
+   <image  src="../../images/bottomNav/cart.png"></image>
+</view>
+      <view class="orderDetails" wx:for="{{lostOrder}}" wx:key=" " >
+        <view class="orderListTitle" catchtap='orderdetail' data-type="{{item.order_id}}">
+          <text class="userName">订单号:{{item.invoice_prefix}}</text>
+          <text wx:if="{{item.order_status_id==3}}" class="orderStatus">已发货</text>
+          <text wx:if="{{item.order_status_id==13}}" class="orderStatus">待发货</text>
+          <text wx:if="{{item.order_status_id==7}}" class="orderStatus">已取消</text>
+      </view>
+      <view class="orderListDetails" wx:for="{{item.goods}}" wx:for-item="goods" catchtap='orderdetail' data-type="{{item.order_id}}">
+          <view class="productImg">
+          <image src="{{goods.image}}"></image>
+          </view>
+          <view class="productInfo">
+              <view class="productTitle">{{goods.name}}</view>
+              <text class="productPrice">￥{{goods.price}}</text><text class="od-num">x{{goods.quantity}}</text>
+              <text class="productQuantity">合计：￥<text>{{goods.total}}</text></text>
+          </view>
+      </view>
+    <view class="od-button" wx:if="{{item.order_status_id==3}}">
+         <button class="order-button" formType="submit" bindtap="ordersure" data-type="{{item.order_id}}">确认收货</button>
+      <button class="order-button" formType="submit" bindtap="returnorder" data-type="{{item.order_id}}">取消订单</button>
+      </view>
+      <view class="od-button" wx:if="{{item.order_status_id==13}}">
+         <button class="order-button" formType="submit" bindtap="ordersure" data-type="{{item.order_id}}">确认收货</button>
+      <button class="order-button" formType="submit" bindtap="returnorder" data-type="{{item.order_id}}">取消订单</button>
+      </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+ <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true" style="height:{{clientHeight}}px">
+     <view wx:if="{{!completeOrder}}"  id="img">
+   <image  src="../../images/bottomNav/cart.png"></image>
+</view>
+      <view class="orderDetails" wx:for="{{completeOrder}}" wx:key=" ">
+        <view class="orderListTitle" catchtap='orderdetail' data-type="{{item.order_id}}">
+          <text class="userName">订单号:{{item.invoice_prefix}}</text>
+          <text class="orderStatus">已完成</text>
+      </view>
+      <view class="orderListDetails" wx:for="{{item.goods}}" wx:for-item="goods" catchtap='orderdetail' data-type="{{item.order_id}}">
+          <view class="productImg">
+          <image src="{{goods.image}}"></image>
+          </view>
+          <view class="productInfo">
+              <view class="productTitle">{{goods.name}}</view>
+              <text class="productPrice">￥{{goods.price}}</text><text class="od-num">x{{goods.quantity}}</text>
+              <text class="productQuantity">合计：￥<text>{{goods.total}}</text></text>
+          </view>
+      </view>
+    <!-- <view class="od-button">
+      <button class="order-button" formType="submit" bindtap="reg">确认收货</button>
+      <button class="order-button" formType="submit" bindtap="reg">取消订单</button>
+    </view> -->
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>

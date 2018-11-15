@@ -1,0 +1,19 @@
+<!--pages/phone/phone.wxml-->
+<!--pages/myinfo/myinfo.wxml-->
+<!--pages/log/log.wxml-->
+<view class="container">
+  <view class="login-from">
+    <!--账号-->
+    <view class="inputView">
+      <label class="loginLab">手机号</label>
+      <input class="inputText" type='number' focus="true" bindinput="phoneInput"/>
+    </view>
+    <view class="line"></view>
+    <!--按钮-->
+    <view id='button'>
+    <button formType="submit" bindtap="dophone">确定</button>
+    </view>
+  </view>
+</view>
+
+
