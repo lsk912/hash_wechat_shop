@@ -71,7 +71,7 @@ swiper-item image {
   display: flex;
   flex-direction: column;
   margin-top: 15rpx;
-  margin-bottom: 0rpx;
+  margin-bottom: 20rpx;
 }
 
 .category-title .name {
@@ -132,6 +132,7 @@ p{
   align-items: center;
   justify-content: center;
   color: #333;
+  margin:0 5px;
 }
 .goods-image{
   width: 280rpx;
