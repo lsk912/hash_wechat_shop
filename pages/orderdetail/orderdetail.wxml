@@ -18,7 +18,7 @@
   <view class="separate"></view>
   <view wx:for="{{order.goods}}" wx:for-item="goods" >
     <view class="cart_container">
-      <image class="item-image" src="{{goods.image}}" catchtap="catchTapCategory" data-typeid="{{goods.product_id}}"></image>
+      <image class="item-image" src="https://wx.nicehash.cn/{{goods.image}}" catchtap="catchTapCategory" data-typeid="{{goods.product_id}}"></image>
       <view class="column"  data-typeid="{{item.product_id}}">
         <text class="title" catchtap="catchTapCategory">{{goods.name}}</text>
         <view class="row">

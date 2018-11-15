@@ -24,7 +24,7 @@
       </view>
       <view class="orderListDetails" wx:for="{{item.goods}}" wx:for-item="goods" catchtap='orderdetail' data-type="{{item.order_id}}">
           <view class="productImg">
-          <image src="{{goods.image}}"></image>
+          <image src="https://wx.nicehash.cn/{{goods.image}}"></image>
           </view>
           <view class="productInfo">
               <view class="productTitle">{{goods.name}}</view>
@@ -60,7 +60,7 @@
       </view>
       <view class="orderListDetails" wx:for="{{item.goods}}" wx:for-item="goods" catchtap='orderdetail' data-type="{{item.order_id}}">
           <view class="productImg">
-          <image src="{{goods.image}}"></image>
+          <image src="https://wx.nicehash.cn/{{goods.image}}"></image>
           </view>
           <view class="productInfo">
               <view class="productTitle">{{goods.name}}</view>
@@ -89,7 +89,7 @@
       </view>
       <view class="orderListDetails" wx:for="{{item.goods}}" wx:for-item="goods" catchtap='orderdetail' data-type="{{item.order_id}}">
           <view class="productImg">
-          <image src="{{goods.image}}"></image>
+          <image src="https://wx.nicehash.cn/{{goods.image}}"></image>
           </view>
           <view class="productInfo">
               <view class="productTitle">{{goods.name}}</view>
@@ -120,7 +120,7 @@
       </view>
       <view class="orderListDetails" wx:for="{{item.goods}}" wx:for-item="goods" catchtap='orderdetail' data-type="{{item.order_id}}">
           <view class="productImg">
-          <image src="{{goods.image}}"></image>
+          <image src="https://wx.nicehash.cn/{{goods.image}}"></image>
           </view>
           <view class="productInfo">
               <view class="productTitle">{{goods.name}}</view>
