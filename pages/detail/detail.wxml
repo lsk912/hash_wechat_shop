@@ -8,10 +8,10 @@
 </swiper>
 
 <!--图文详情按钮-->
-<view class='tab-bar-detail'>
+<!-- <view class='tab-bar-detail'>
       <text>图文</text>
       <text>详情</text>
-</view> 
+</view>  -->
 
 <view class="product-price-wrap">
   <view wx:if="{{goods.special}}">
