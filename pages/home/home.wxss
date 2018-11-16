@@ -163,7 +163,7 @@ p{
   font-size: 24rpx;
   /* margin:0 5px 20px 5px; */
 }
-.product-tit{
+.product-list{
   margin:0 6px 20px 6px;
 }
 .welfares-image{
@@ -216,7 +216,4 @@ p{
 .weui-loadmore__tips {
   display: inline-block;
   vertical-align: middle;
-}
-.tes{
-  
 }

@@ -4,18 +4,19 @@
       <view class="welfares">
          <block wx:for-items="{{goodsWelfareItems}}" wx:key="name">
           <view class="welfares-good" catchtap="catchTapCategory" data-type="{{item.name}}" data-typeid="{{item.product_id}}">
-            <view>
-              <image src="https://wx.nicehash.cn/{{item.image}}" class="welfares-image" mode="widthFix"/> 
+            <view class="product-list">
+              <view>
+                <image src="https://wx.nicehash.cn/{{item.image}}" class="welfares-image" mode="widthFix"/> 
+              </view>
+              <view class="product-name">
+                {{item.name}}
+              </view>
+              <view class="product-price-wrap">
+                <p>￥{{item.price}}</p>  
+                <!-- <p class="product-price-old">￥{{item.oldprice}}</p> 
+                <p class="discount">{{item.discount}}折</p>   -->
+              </view>
             </view>
-            <view class="product-name">
-              {{item.name}}
-            </view>
-            <view class="product-price-wrap">
-              <p>￥{{item.price}}</p>  
-              <!-- <p class="product-price-old">￥{{item.oldprice}}</p> 
-              <p class="discount">{{item.discount}}折</p>   -->
-            </view>
-            
           </view>
         </block> 
       </view>

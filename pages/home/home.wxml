@@ -44,7 +44,7 @@
       <view class="welfares">
          <block wx:for-items="{{goodsWelfareItems}}" wx:key="name">
           <view class="welfares-good" catchtap="catchTapCategory" data-type="{{item.name}}" data-typeid="{{item.product_id}}">
-            <view class="product-tit">
+            <view class="product-list">
               <view>
                 <image src="https://wx.nicehash.cn/{{item.image}}" class="welfares-image" mode="widthFix"/> 
               </view>
