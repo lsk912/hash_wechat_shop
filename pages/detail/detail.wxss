@@ -37,6 +37,14 @@ swiper-item image {
   font-size: 22rpx;
   color: red;
 }
+.detail-img{
+  /* width: 100%; */
+  min-height: 550px;
+}
+.details{
+  text-align: center;
+  margin-bottom: 55px;
+}
 /**商品价格**/
 .product-price-wrap{
   display: flex;
