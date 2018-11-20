@@ -52,6 +52,19 @@ Page({
             })
           }
         })
+        wx.request({
+          url: 'https://wx.nicehash.cn/api/cartcount.php?userid=' + res.data,
+          header: {
+            'content-type': 'application/json',
+          },
+          success: function (res) {
+            console.log(res.data.data)
+            wx.setTabBarBadge({
+              index: 2,
+              text: "" + res.data.data + "",
+            })
+          }
+        })
       },
     })
   },

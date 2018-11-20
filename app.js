@@ -1,6 +1,8 @@
 //app.js
 App({
+  code: null,
   onLaunch: function () {
+    var that = this;
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -8,11 +10,13 @@ App({
 
     // 登录
     wx.login({
+      
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         if (res.code) {
           //发起网络请求  
           // console.log(res.code)
+          that.code = res.code;
         } else {
           console.log('获取用户登录态失败！' + res.errMsg)
         }  
@@ -41,5 +45,6 @@ App({
   },
   globalData: {
     userInfo: null
-  }
+  },
+
 })

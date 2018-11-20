@@ -77,7 +77,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this
+    wx.getStorage({
+      key: 'userid',
+      success: function (res) {
+        wx.request({
+          url: 'https://wx.nicehash.cn/api/cartcount.php?userid=' + res.data,
+          header: {
+            'content-type': 'application/json',
+          },
+          success: function (res) {
+            console.log(res.data.data)
+            wx.setTabBarBadge({
+              index: 2,
+              text: ""+res.data.data+"",
+            })
+          }
+        })
+      },
+    })
   },
 
   /**

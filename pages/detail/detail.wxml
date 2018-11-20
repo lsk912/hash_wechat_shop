@@ -38,7 +38,7 @@
  </view>
 <!-- 底部悬浮栏 -->
 <view class="detail-nav">
-  <image bindtap="toCar" src="../../images/bottomNav/cart.png" />  
+  <image bindtap="toCar" src="../../images/bottomNav/cart.png" />{{count}}
   <view class="line_nav"></view>
    <image bindtap="addLike" data-typeid="{{isLike?1:2}}" data-userid="{{userid}}"src="{{isLike?'../../images/bottomNav/enshrine_select.png':'../../images/bottomNav/enshrine.png'}}" /> 
   <button data-goodid="1" data-userid="{{userid}}"  class="button-green" bindtap="toggleDialog" >加入购物车</button>

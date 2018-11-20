@@ -4,6 +4,7 @@ var typeid = null;
 var userid = null;
 var isLike = null;
 var carts = {};
+var count = null;
 Page({
 
   /**
@@ -110,6 +111,17 @@ goodImage:function(success){
         console.log(res.data);
         that.setData({
           userid:res.data
+        })
+        wx.request({
+          url: 'https://wx.nicehash.cn/api/cartcount.php?userid=' + res.data,
+          header: {
+            'content-type': 'application/json',
+          },
+          success: function (res) {
+            that.setData({
+              count:res.data.data
+            })
+          }
         })
       },
     })
