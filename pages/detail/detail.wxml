@@ -38,20 +38,11 @@
  </view>
 <!-- 底部悬浮栏 -->
 <view class="detail-nav">
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  <image bindtap="toCar" src="../../images/bottomNav/cart.png" />{{count}}
-=======
-  <image bindtap="toCar" src="../../images/bottomNav/cart.png" />
-  <text class="ii">{{count}}</text>
->>>>>>> Stashed changes
   <view class="line_nav"></view>
-=======
   <image bindtap="toCar" src="../../images/bottomNav/cart.png" />
   <view class="line_nav">
-    <view class='cart-num'>2</view>
+    <view class='cart-num'>{{count}}</view>
   </view>
->>>>>>> Stashed changes
    <image bindtap="addLike" data-typeid="{{isLike?1:2}}" data-userid="{{userid}}"src="{{isLike?'../../images/bottomNav/enshrine_select.png':'../../images/bottomNav/enshrine.png'}}" /> 
   <button data-goodid="1" data-userid="{{userid}}"  class="button-green" bindtap="toggleDialog" >加入购物车</button>
   <button class="button-red" bindtap="immeBuy" data-userid="{{userid}}" formType="submit">立即购买</button>
