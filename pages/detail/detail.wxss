@@ -233,3 +233,17 @@ button {
   justify-content: center;  
   flex-direction: column;  
 }
+.line_nav .cart-num{
+width:21px;
+height:21px;
+background-color:red;
+border-radius:15px;
+font-size:15px;
+text-align:center;
+line-height:20px;
+margin-right:1px;
+margin-top:1px;
+color:#fff;
+float:right;
+
+}
