@@ -43,7 +43,7 @@ swiper-item image {
 }
 .details{
   text-align: center;
-  margin-bottom: 55px;
+  padding-bottom: 60px;
 }
 /**商品价格**/
 .product-price-wrap{
