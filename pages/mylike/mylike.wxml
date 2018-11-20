@@ -5,8 +5,9 @@
       <view class="welfares">
          <block wx:for-items="{{goodsWelfareItems}}" wx:key="name">
           <view class="welfares-good" catchtap="catchTapCategory" data-type="{{item.name}}" data-typeid="{{item.product_id}}">
+           <view class="product-list">
             <view>
-              <image src="{{item.image}}" class="welfares-image" mode="widthFix"/> 
+              <image src="https://wx.nicehash.cn/{{item.image}}" class="welfares-image" mode="widthFix"/> 
             </view>
             <view class="product-name">
               {{item.name}}
@@ -16,7 +17,7 @@
               <!-- <p class="product-price-old">￥{{item.oldprice}}</p> 
               <p class="discount">{{item.discount}}折</p>   -->
             </view>
-            
+             </view>
           </view>
         </block> 
       </view>

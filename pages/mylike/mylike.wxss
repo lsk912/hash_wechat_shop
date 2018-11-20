@@ -8,13 +8,14 @@
   margin:10px 5px;
 }
 .welfares-good{
-  height: 560rpx; 
-  width: 47%;
+  /* height: 560rpx;  */
+  width: 49.4444%;
   /* margin:0px auto; */
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   position: relative;
   display: inline-block;
   font-size: 24rpx;
+  /* margin:0 5px 20px 5px; */
 }
 .welfares-image{
   width: 100%;
@@ -43,6 +44,9 @@
   right: 5px;
   background-color: #000;
   color: #fff;
+}
+.product-list{
+  margin:0 6px 20px 6px;
 }
 p{
   color: red;

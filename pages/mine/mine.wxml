@@ -40,10 +40,6 @@
     <text class="item-text" bindtap="myAddress">收货地址</text>
   </view>
   <view class="person-line"></view>
-  <view class="list-item" bindtap="ceshi">
-    <image class="item-image" src="../../images/person/personal_site.png"></image>
-    <text class="item-text" bindtap="ceshi">测试</text>
-  </view>
   <!-- <view class="list-item">
     <image class="item-image" src="../../images/person/personal_sale_record.png"></image>
     <text class="item-text">售后记录</text>
