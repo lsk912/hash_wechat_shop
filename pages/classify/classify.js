@@ -65,10 +65,12 @@ Page({
           },
           success: function (res) {
             console.log(res.data.data)
-            wx.setTabBarBadge({
-              index: 2,
-              text: "" + res.data.data + "",
-            })
+            if (res.data.data != 0) {
+              wx.setTabBarBadge({
+                index: 2,
+                text: "" + res.data.data + "",
+              })
+            }
           }
         })
       },
