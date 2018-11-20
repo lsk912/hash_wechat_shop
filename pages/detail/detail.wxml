@@ -38,7 +38,6 @@
  </view>
 <!-- 底部悬浮栏 -->
 <view class="detail-nav">
-  <view class="line_nav"></view>
   <image bindtap="toCar" src="../../images/bottomNav/cart.png" />
   <view class="line_nav">
     <view class='cart-num'>{{count}}</view>
