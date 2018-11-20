@@ -88,10 +88,14 @@ Page({
           },
           success: function (res) {
             console.log(res.data.data)
-            if(res.data.data != 0){
+            if (res.data.data != 0) {
               wx.setTabBarBadge({
                 index: 2,
                 text: "" + res.data.data + "",
+              })
+            } else {
+              wx.removeTabBarBadge({
+                index: 2,
               })
             }
            

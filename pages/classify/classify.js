@@ -70,6 +70,10 @@ Page({
                 index: 2,
                 text: "" + res.data.data + "",
               })
+            } else {
+              wx.removeTabBarBadge({
+                index: 2,
+              })
             }
           }
         })
