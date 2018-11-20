@@ -29,9 +29,9 @@
    margin-bottom: 5px; 
 }
 .product-price-wrap .product-price-new{
-  color: #e80080;
-  margin-left:5px;
-  font-weight:900;
+  color: red;
+  font-size: 30rpx;
+  margin-top: 20rpx;
 }
 .product-price-wrap .product-price-old{
   color: #888;

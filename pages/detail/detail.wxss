@@ -38,8 +38,8 @@ swiper-item image {
   color: red;
 }
 .detail-img{
-  /* width: 100%; */
-  min-height: 550px;
+  width: 100%;
+  /* min-height: 300px; */
 }
 .details{
   text-align: center;

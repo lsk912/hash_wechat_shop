@@ -12,9 +12,13 @@
                 {{item.name}}
               </view>
               <view class="product-price-wrap">
-                <p>￥{{item.price}}</p>  
-                <!-- <p class="product-price-old">￥{{item.oldprice}}</p> 
-                <p class="discount">{{item.discount}}折</p>   -->
+                <view wx:if="{{item.special}}">
+                  <p class="product-price-new">￥{{item.special}}</p>  
+                  <p class="product-price-old">原价￥{{item.price}}</p> 
+                </view>
+                <view wx:else="{{item.special}}">
+                  <p class="product-price-new">￥{{item.price}}</p>  
+                </view>
               </view>
             </view>
           </view>

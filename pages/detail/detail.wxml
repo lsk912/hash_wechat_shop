@@ -33,7 +33,7 @@
 
 <view class="details"> 
    <scroll-view scroll-y="true" wx:for="{{goods.description}}"> 
-     <image class="detail-img" src="{{item}}"></image>
+     <image mode="widthFix" class="detail-img" src="{{item}}"></image>
    </scroll-view> 
  </view>
 <!-- 底部悬浮栏 -->
