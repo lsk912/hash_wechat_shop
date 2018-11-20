@@ -39,7 +39,12 @@
 <!-- 底部悬浮栏 -->
 <view class="detail-nav">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   <image bindtap="toCar" src="../../images/bottomNav/cart.png" />{{count}}
+=======
+  <image bindtap="toCar" src="../../images/bottomNav/cart.png" />
+  <text class="ii">{{count}}</text>
+>>>>>>> Stashed changes
   <view class="line_nav"></view>
 =======
   <image bindtap="toCar" src="../../images/bottomNav/cart.png" />

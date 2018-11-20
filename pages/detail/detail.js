@@ -238,6 +238,7 @@ goodImage:function(success){
     * sku 弹出
     */
   toggleDialog: function (e) {
+    var that = this
     userid = e.currentTarget.dataset.userid;
     console.log(userid);
     console.log(goodsId);
@@ -261,6 +262,7 @@ goodImage:function(success){
               icon: 'success',
               duration: 2000,
             })
+            that.onShow()
           }
         }
       })
