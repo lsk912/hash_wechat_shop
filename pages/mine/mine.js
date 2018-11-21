@@ -159,6 +159,7 @@ Page({
         })
       },
     })
+    console.log(app.code)
   },
 
   ceshi: function () {

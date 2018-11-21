@@ -174,8 +174,8 @@ Page({
   switchSelect: function (e) {
     // 获取item项的id，和数组的下标值  
     var Allprice = 0, i = 0;
-    let id = e.target.dataset.id,
-
+    var id = e.target.dataset.id,
+    
       index = parseInt(e.target.dataset.index);
     this.data.carts[index].isSelect = !this.data.carts[index].isSelect;
     //价钱统计
@@ -203,7 +203,7 @@ Page({
   },
   allSelect: function (e) {
     //处理全选逻辑
-    let i = 0;
+    var i = 0;
     if (!this.data.isAllSelect) {
       this.data.totalMoney = 0;
       for (i = 0; i < this.data.carts.length; i++) {

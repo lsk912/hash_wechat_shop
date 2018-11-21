@@ -1,0 +1,9 @@
+var filters = {
+  toFix: function (value) {
+    var values = parseFloat(value);
+    return values.toFixed(2)//此处2为保留两位小数
+  }
+}
+module.exports = {
+  toFix: filters.toFix
+}
