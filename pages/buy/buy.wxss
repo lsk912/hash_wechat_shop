@@ -83,7 +83,7 @@ page{
   border-top: 1rpx solid #ccc;
 }
 .button-red {
-  background-color: #f0145a; 
+  background-color: #f44336; 
   position: fixed;
   right: 0;
   color: white;
