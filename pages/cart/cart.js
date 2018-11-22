@@ -36,6 +36,9 @@ Page({
     wx.getStorage({
       key: 'userid',
       success: function (res) {
+        that.setData({
+          isAllSelect: false,
+        })
         // console.log(res.data);
         that.setData({
           userid: res.data
