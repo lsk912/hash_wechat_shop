@@ -39,7 +39,7 @@
 <!-- 底部悬浮栏 -->
 <view class="detail-nav">
   <image bindtap="toCar" src="../../images/bottomNav/cart.png" />
-  <block wx:if="{{count != null}}">
+  <block wx:if="{{count !=0}}">
     <view class="line_nav">
       <view class='cart-num'>{{count}}</view>
     </view>
