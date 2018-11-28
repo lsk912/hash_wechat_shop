@@ -37,7 +37,7 @@
   <view class="person-line"></view>
   <view class="list-item" bindtap="myAddress">
     <image class="item-image" src="../../images/person/personal_site.png"></image>
-    <text class="item-text" bindtap="myAddress">收货地址</text>
+    <text class="item-text" >收货地址</text>
   </view>
   <view class="person-line"></view>
   <!-- <view class="list-item">
