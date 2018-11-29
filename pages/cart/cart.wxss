@@ -53,9 +53,11 @@ page{
 }
 .small_text {
   font-size: 28rpx;
-  margin-right: 40rpx;
+  /* margin-right: 40rpx; */
   /* margin-left: 10rpx; */
-  margin-left: 25rpx;
+  /* margin-left: 25rpx; */
+  padding-right: 40rpx;
+  padding-left: 25rpx;
 }
 .item-select {
   width: 40rpx;
@@ -193,12 +195,7 @@ page{
   font-size: 38rpx;
   margin-top: 40rpx;
 }
-.small_text {
-  font-size: 28rpx;
-  margin-right: 40rpx;
-  /* margin-left: 10rpx; */
-  margin-left: 25rpx;
-}
+
 .item-select {
   width: 40rpx;
   height: 40rpx;
@@ -308,17 +305,14 @@ page{
   font-size: 38rpx;
   margin-top: 40rpx;
 }
-.small_text {
-  font-size: 28rpx;
-  margin-right: 40rpx;
-  /* margin-left: 10rpx; */
-  margin-left: 25rpx;
-}
+
 .item-select {
   width: 40rpx;
   height: 40rpx;
-  margin-top: 90rpx;
-  margin-left: 20rpx;
+  margin-top: 0rpx;
+  margin-left: 0rpx;
+  padding-top: 90rpx;
+  padding-left: 20rpx;
 }
 .item-allselect {
   width: 40rpx;

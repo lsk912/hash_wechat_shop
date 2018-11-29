@@ -30,14 +30,13 @@
   <view class="bottom_line"></view>
 
   <view class="row">
-
-    <view  wx:if="{{!isAllSelect}}">
-            <icon class="item-allselect" bindtap="allSelect" type="circle" size="20"></icon>
+      <view  wx:if="{{!isAllSelect}}">
+          <icon class="item-allselect" bindtap="allSelect" type="circle" size="20"></icon>
       </view>
       <view wx:elif="{{isAllSelect}}">
             <icon class="item-allselect" bindtap="allSelect" type="success" color="#e84c3d" size="20"></icon>
       </view>
-    <text class="small_text">全选</text>
+      <text bindtap="allSelect" class="small_text">全选</text>
     <text>合计:￥ </text>
     <text class="price">{{filters.toFix(totalMoney)}}</text>
     <button class="button-red" bindtap="toBuy" formType="submit">去结算      </button>
