@@ -21,12 +21,12 @@
    <view wx:else="{{goods.special}}">
     <p class="product-price-new">￥{{goods.price}}</p>  
   </view>
+  <view class="product-name-wrap">
+    <text>{{goods.meta_title}}</text>
+  </view>
   <view>
     <image src="../../images/bottomNav/share.png" />  
   </view>   
-</view>
-<view class="product-name-wrap">
-  <text>{{goods.meta_title}}</text>
 </view>
 
 <view class="separate"></view>

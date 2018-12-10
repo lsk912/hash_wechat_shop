@@ -4,6 +4,7 @@ page {
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: #e6e6e6;
 }
 /* 直接设置swiper属性 */
 swiper {
@@ -47,12 +48,14 @@ swiper-item image {
 }
 /**商品价格**/
 .product-price-wrap{
-  display: flex;
+  /* display: flex; */
   justify-content:space-between;/**两边对齐**/
   flex-direction: row;
   flex-wrap: wrap;
-  margin:5px 5px;
+  /* margin:5px 5px; */
    /* border:1rpx solid red;   */
+   margin: 8px 0;
+   background-color: #fff;
 }
  .product-price-wrap .product-price-new{
   color:red;
@@ -81,7 +84,9 @@ swiper-item image {
   margin: 5px 5px; 
 }
 .product-name-wrap{
-  margin: 30px 10px;
+  /* margin: 30px 10px; */
+  margin: 0 10px;
+  background-color: #fff;
    /* border:1rpx solid red;  */
 }
 .product-name-wrap text{
