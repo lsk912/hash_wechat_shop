@@ -90,6 +90,12 @@ swiper-item image {
   line-height: .48rem;
   color: #404040;
 }
+.product-price-wrap text{
+  font-size: 14px;
+  font-weight:400;
+  line-height: .48rem;
+  color: #404040;
+}
 
 .detail {
   display: inline-block;
