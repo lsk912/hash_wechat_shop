@@ -25,7 +25,7 @@
     <text>{{goods.meta_title}}</text>
   </view>
   <view>
-    <image src="../../images/bottomNav/share.png" />  
+    <text>运费:包邮</text> 
   </view>   
 </view>
 
