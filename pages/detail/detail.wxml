@@ -14,19 +14,21 @@
 </view>  -->
 
 <view class="product-price-wrap">
-  <view wx:if="{{goods.special}}">
-    <p class="product-price-new">￥{{goods.special}}</p>  
-    <p class="product-price-old">原价￥{{goods.price}}</p> 
-  </view>
-   <view wx:else="{{goods.special}}">
-    <p class="product-price-new">￥{{goods.price}}</p>  
+  <view class="price-tit">
+    <view wx:if="{{goods.special}}" class="price-det">
+      <p class="product-price-new">￥{{goods.special}}</p>  
+      <p class="product-price-old">原价￥{{goods.price}}</p> 
+    </view> 
+    <view wx:else="{{goods.special}}" class="price-det">
+      <p class="product-price-new">￥{{goods.price}}</p>  
+    </view>
+    <view class="price-freight">
+      <text>运费:包邮</text> 
+    </view>  
   </view>
   <view class="product-name-wrap">
     <text>{{goods.meta_title}}</text>
   </view>
-  <view>
-    <text>运费:包邮</text> 
-  </view>   
 </view>
 
 <view class="separate"></view>

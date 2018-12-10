@@ -88,6 +88,7 @@ swiper-item image {
   margin: 0 10px;
   background-color: #fff;
    /* border:1rpx solid red;  */
+   float: left;
 }
 .product-name-wrap text{
   font-size: 14px;
@@ -257,5 +258,19 @@ margin-top:1px;
 color:#fff;
 float:right;
 
+}
+
+.price-tit{
+  white-space:nowrap;
+  width:100%;
+}
+.price-det{
+  width:75%;
+  float:left;
+}
+.price-freight{
+  width:20%;
+  float:right;
+  line-height:40px;
 }
 
